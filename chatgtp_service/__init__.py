@@ -95,7 +95,7 @@ def setup(hass, config):
           with open(context_file, "w") as file:
              file.write(final_context) #Append the AI response, to store for next context
             
-        hass.bus.async_fire("chatgtp_service", {"result": response_text})
+        hass.bus.async_fire("chatgtp-service", {"result": response_text})
         
         # Call tts service from Home Assistant
         service_data = {"entity_id": media_id, "cache": cache_opt, "message": response_text}
